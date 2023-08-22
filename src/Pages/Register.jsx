@@ -1,5 +1,4 @@
 import Dropdown from '../assets/dropdown.svg'
-import axios from '../utils/axios'
 import { useState, useEffect } from 'react'
 
 import { login } from '../store/user'
@@ -21,6 +20,7 @@ function App() {
 
     useEffect(() => {
         if (localStorage.getItem("token")) return navigate("/home");
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [user])
 
     const createAccount = () => {

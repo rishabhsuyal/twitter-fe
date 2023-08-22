@@ -1,4 +1,3 @@
-import shine from '../assets/shine.svg'
 import Navbar from '../Component/Navbar'
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
@@ -39,6 +38,7 @@ function App() {
   
   useEffect(() => {
    reloadOperation();
+   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   if (!user.token) return;

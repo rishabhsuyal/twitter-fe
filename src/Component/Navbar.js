@@ -3,12 +3,8 @@ import HomeLogo from '../assets/home.svg'
 import HashLogo from '../assets/hashtag.svg'
 import NotificationLogo from '../assets/notification.svg'
 import DMlogo from '../assets/message.svg'
-import Profile from '../assets/profile.svg'
-import More from '../assets/more.svg'
-import Bookmark from '../assets/bookmark.svg'
-import List from '../assets/list.svg'
 import Default from '../assets/default.png'
-import { NavLink, useLocation, useNavigate } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 
 function App() {
@@ -42,7 +38,7 @@ function App() {
                     <span>Messages</span>
                 </NavLink>
 
-                <a href='#' className='bg-[#1d9bf0] hover:bg-[#1A8CD8] transition-all w-60 h-12 hidden md:flex items-center justify-center rounded-3xl mt-3' >
+                <a href='/' className='bg-[#1d9bf0] hover:bg-[#1A8CD8] transition-all w-60 h-12 hidden md:flex items-center justify-center rounded-3xl mt-3' >
                     <span className='font-bold text-lg' >Tweeter</span>
                 </a>
                 <div>

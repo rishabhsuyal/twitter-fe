@@ -8,7 +8,6 @@ import store from './store/index.js'
 import { Provider } from 'react-redux'
 import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
-import Auth from "./utils/Auth";
 
 
 function App() {

@@ -1,11 +1,8 @@
 import Logo from '../assets/logo.png'
-import Google from '../assets/google.png'
-import Apple from '../assets/apple.svg'
 import { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { login } from '../store/user'
 import { Link, useNavigate } from 'react-router-dom'
-import axios from '../utils/axios'
 import { loginUser } from '../api/requests/requests'
 
 function App() {
@@ -20,6 +17,7 @@ function App() {
     
     useEffect(() => {
         if (localStorage.getItem("token")) return navigate("/home")
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [user])
 
     const auth = () => {
@@ -47,7 +45,7 @@ function App() {
                         <span className='text-xs' >User name</span>
                         <span> {username} </span>
                     </div>
-                    <input autoFocus onKeyUp={e => e.key == 'Enter' ? auth() : false} onInput={e => setPassword(e.target.value)} type="password" className='outline-none rounded h-14 text-lg w-full bg-transparent transition-all focus-within:border-[#1d9bf0] border-2 border-gray-600 border-opacity-50 px-4' placeholder='Password' />
+                    <input autoFocus onKeyUp={e => e.key === 'Enter' ? auth() : false} onInput={e => setPassword(e.target.value)} type="password" className='outline-none rounded h-14 text-lg w-full bg-transparent transition-all focus-within:border-[#1d9bf0] border-2 border-gray-600 border-opacity-50 px-4' placeholder='Password' />
                     <button onClick={auth} className='w-full h-10 flex font-bold items-center justify-center gap-4 bg-white text-black rounded-3xl transition-all hover:bg-[#E6E6E6] ' >
                         {loading ?
                             <div className='w-4 h-4 border-gray-600 border-2 border-t-[#1d9bf0] rounded-full animate-spin ' ></div> :
@@ -70,7 +68,7 @@ function App() {
                         <span>OR</span>
                         <div className='h-[1px] bg-gray-500 bg-opacity-50 w-full' ></div>
                     </div>
-                    <input onKeyUp={e => e.key == 'Enter' ? setNext(true) : false} onInput={e => setName(e.target.value)} type="text" className='outline-none rounded h-14 text-lg w-full bg-transparent transition-all focus-within:border-[#1d9bf0] border-2 border-gray-600 border-opacity-50 px-4' placeholder='User name' />
+                    <input onKeyUp={e => e.key === 'Enter' ? setNext(true) : false} onInput={e => setName(e.target.value)} type="text" className='outline-none rounded h-14 text-lg w-full bg-transparent transition-all focus-within:border-[#1d9bf0] border-2 border-gray-600 border-opacity-50 px-4' placeholder='User name' />
                     <button onClick={() => username ? setNext(true) : false} className='w-full h-10 flex items-center justify-center gap-4 bg-blue-500 text-black rounded-3xl transition-all hover:bg-[#E6E6E6] ' >
                         <span>Next</span>
                     </button>

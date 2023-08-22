@@ -1,14 +1,15 @@
 import { useState } from "react"
 import { useDispatch, useSelector } from "react-redux";
 import { updateUser } from "../store/user";
-import axios from "../utils/axios";
 import { followUser } from '../api/requests/requests'
 
 function App({ active, user, followersCallback, followingCallback }) {
 
     const [fLoading, setfLoading] = useState(false)
     const [text, setText] = useState("followed")
+    
     const [followers, setFollowers] = useState([])
+    // eslint-disable-next-line
     const [following, setFollowing] = useState([])
     const currentUser = useSelector(state => state.user)
     const dispatch = useDispatch()

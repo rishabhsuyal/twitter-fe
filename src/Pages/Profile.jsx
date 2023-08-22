@@ -8,7 +8,6 @@ import FollowButton from '../Component/FollowButton'
 import { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { Link, useNavigate, useParams } from 'react-router-dom'
-import axios from '../utils/axios'
 import { getUser, getTweets } from '../api/requests/requests'
 
 function App() {
@@ -42,7 +41,7 @@ function App() {
     }
 
     useEffect(() => {
-        if (params.username == currentUser.username) {
+        if (params.username === currentUser.username) {
             setSelfMode(true)
             setUser(currentUser)
             followersCallback(currentUser.followers)
@@ -52,6 +51,7 @@ function App() {
         }
         if (user) return;
         userManager()
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [params, currentUser, selfMode])
 
     
@@ -65,7 +65,7 @@ function App() {
                     <div id='tweets' className='border-l md:w-[592px] w-full border-l-gray-500 border-r border-r-gray-500 border-opacity-50 self-start flex flex-col items-center' >
                     <div className='bg-blue-200 w-full'>
                        <div>
-                          <button onClick={()=>navigate(-1)} className='text-bold'><img src={back} className='bg-black'/></button>
+                          <button onClick={()=>navigate(-1)} className='text-bold'><img alt="" src={back} className='bg-black'/></button>
                        </div>
                     </div>
                         {user ?

@@ -21,6 +21,7 @@ function Auth() {
        const info = JSON.parse(localStorage.getItem("userInfo"));
        if(info) dispatch(login(info));
        else dispatch(login(emptyObj));
+       // eslint-disable-next-line react-hooks/exhaustive-deps
     },[])
     return(
         user.token ? 

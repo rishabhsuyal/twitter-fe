@@ -1,23 +1,20 @@
 import { useEffect, useState } from 'react'
-import axios from '../utils/axios'
-import heart from '../assets/heart.svg'
 import comment from '../assets/comment.svg'
-import upload from '../assets/upload.svg'
-import retweet from '../assets/retweet.svg'
 import Default from '../assets/default.png'
-import { useNavigate, Link, useParams } from 'react-router-dom'
-import FollowButton from './FollowButton'
+import { useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { getUser, deleteTweet, editTweet } from '../api/requests/requests'
 import Loading from './Loading'
 
 function App({ unique_key,id, content, date,refresh, selfMode }) {
-    //console.log(unique_key);
     const [loading,setLoading]=useState(false);
     const navigate = useNavigate()
     const [user, setUser] = useState(null)
-    const [followers, followersCallback] = useState([])
-    const [following, followingCallback] = useState([])
+
+    // // eslint-disable-next-line react-hooks/exhaustive-deps
+    // const [followers, followersCallback] = useState([])
+    // // eslint-disable-next-line react-hooks/exhaustive-deps
+    // const [following, followingCallback] = useState([])
     const [editedTweet,setEditedTweet] = useState(content)
     const [editMode,setEditMod] = useState(false);
     const currentUser = useSelector(state => state.user)
@@ -29,14 +26,15 @@ function App({ unique_key,id, content, date,refresh, selfMode }) {
         const data = await getUser({ id })
         if (data) {
             setUser(data)
-            followersCallback(data.followers)
-            followingCallback(data.following)
+            // followersCallback(data.followers)
+            // followingCallback(data.following)
         }
     }
 
     useEffect(() => {
         if (user) return
         userManager()
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     
@@ -85,7 +83,7 @@ function App({ unique_key,id, content, date,refresh, selfMode }) {
             </div>
             <div className='w-full flex flex-col items-start justify-center pb-3' >
                 <div className='flex items-center justify-center gap-1' >
-                    <a onClick={goPage} className='font-semibold cursor-pointer hover:underline' > {user?.name} </a>
+                    <a href={`/${user.username}`} onClick={goPage} className='font-semibold cursor-pointer hover:underline' > {user?.name} </a>
                     <span className='text-[#54595D]' > @{user?.username} </span>
                     <span className='text-[#54595D]' >4s</span>
                 </div>

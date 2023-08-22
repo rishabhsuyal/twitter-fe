@@ -6,7 +6,6 @@ import event from '../assets/event.svg'
 import location from '../assets/location.svg'
 import Default from '../assets/default.png'
 
-import axios from '../utils/axios'
 import { useState } from 'react'
 import { useSelector } from 'react-redux'
 import { createTweet } from '../api/requests/requests'
@@ -31,7 +30,7 @@ function App({ refresh }) {
         const response = (data) => {
             document.getElementById("content").value = ""
             setContent("")
-            if (data == 'OK') return refresh()
+            if (data === 'OK') return refresh()
         }
         createTweet(sendToData, response)
     }
@@ -51,12 +50,12 @@ function App({ refresh }) {
                 <input id='content' onInput={e => setContent(e.target.value)} type="text" className='w-full outline-none h-[52px] bg-transparent placeholder-gray-600 text-xl' placeholder='anthing on your mind?' />
                 <div className='flex items-center justify-between w-full' >
                     <div className='flex mt-3 gap-2' >
-                        <img src={image} width='25' className='cursor-pointer' />
-                        <img src={gif} width='25' className='cursor-pointer' />
-                        <img src={poll} width='25' className='cursor-pointer' />
-                        <img src={smile} width='25' className='cursor-pointer' />
-                        <img src={event} width='25' className='cursor-pointer' />
-                        <img src={location} width='25' className='cursor-pointer' />
+                        <img alt='' src={image} width='25' className='cursor-pointer' />
+                        <img alt='' src={gif} width='25' className='cursor-pointer' />
+                        <img alt='' src={poll} width='25' className='cursor-pointer' />
+                        <img alt='' src={smile} width='25' className='cursor-pointer' />
+                        <img alt='' src={event} width='25' className='cursor-pointer' />
+                        <img alt='' src={location} width='25' className='cursor-pointer' />
                     </div>
                     <div onClick={tweet}
                         style={buttonStyle}

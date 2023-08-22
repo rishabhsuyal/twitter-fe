@@ -1,4 +1,4 @@
 import axios from "axios";
 export default axios.create({
-  baseURL: "http://localhost:3030"
+  baseURL: "twitter-be-product.up.railway.app"
 });
